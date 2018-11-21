@@ -1,0 +1,14 @@
+{% load crispy_forms_tags %}
+
+{% for field in form %}
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <span class="text-danger small" >{{ field.errors }}</span>
+        </div>
+        {{ field|as_crispy_field }}
+        <div class="col-sm-offset-2 col-sm-10">
+            <span class="text-dark small" >{{ field.help_text }}</span>
+        </div>
+    </div>
+{% endfor %}
+

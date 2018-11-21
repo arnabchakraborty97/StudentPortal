@@ -8,6 +8,12 @@ urlpatterns = [
 	# admin/
     url(r'^admin/', admin.site.urls),
 
+    # dashboard/
+    url(r'^dashboard/', include('dashboard.urls', namespace='dashboard')),
+
+    # forum/
+    url(r'^forum/', include('forum.urls', namespace='forum')),
+
 ]
 
 if settings.DEBUG:
