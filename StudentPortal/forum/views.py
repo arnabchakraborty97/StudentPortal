@@ -10,6 +10,12 @@ class IndexView(ListView):
 	model = Post
 	template_name = 'forum/index.html'
 	context_object_name = 'posts'
+	paginate_by = 10
+
+	def get_context_data(self, **kwargs):
+		context = super(IndexView, self).get_context_data(**kwargs)
+		context['range'] = range(context['paginator'].num_pages)
+		return context
 
 
 class PostDetailView(DetailView):

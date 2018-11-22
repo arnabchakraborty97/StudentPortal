@@ -1,6 +1,8 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.urls import reverse_lazy
+from django.views.generic import RedirectView
 from django.conf.urls import url, include
 
 urlpatterns = [
@@ -13,6 +15,9 @@ urlpatterns = [
 
     # forum/
     url(r'^forum/', include('forum.urls', namespace='forum')),
+
+    # Redirect all other urls
+    url(r'^.*$', RedirectView.as_view(url=reverse_lazy('dashboard:index'))),
 
 ]
 

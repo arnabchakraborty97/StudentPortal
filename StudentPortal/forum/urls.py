@@ -8,6 +8,9 @@ urlpatterns = [
 	# forum/
 	url(r'^$', views.IndexView.as_view(), name='index'),
 
+	# forum/posts
+	url(r'^posts/$', views.IndexView.as_view(), name='index'),
+
 	# posts/72
 	url(r'^posts/(?P<pk>[0-9]+)$', views.PostDetailView.as_view(), name='post-detail'),
 
